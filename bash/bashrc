@@ -1,0 +1,146 @@
+# emacs-mode: -*-shell-script-*-
+################################################################
+#
+# Blaizes Bashrc
+#
+# for interactive, non-login shells.
+# 
+################################################################
+
+
+
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific aliases and functions
+
+# # try to setup some os independence
+# if [ -z "$ENVRC_SOURCED" ]
+# then
+#     source ~/env/shell/envrc
+#     export ENVRC_SOURCED=1
+# fi
+
+
+
+# # if not interactive cut out early
+# #if [ -z "$PS1" ] 
+# #then
+# #   return
+# #fi
+
+# ## some info
+# NAME='Blaize Rhodes'
+# LANG=en_AU
+# TZ=Australia/Queensland
+# export NAME LANG TZ
+
+# # colour prompt
+# PS1='\[\033]0;\w\007\033[32m\]\h:\[\033[33m\W\033[0m\]$ '
+# export PS1
+
+# # prompt = "host:dir-basename$"
+# PS1="\h:\W\$ "
+# export PS1
+
+# # man page pager..
+# export PAGER=less
+
+# # executables
+# PATH=
+
+# # local things
+# PATH=$PATH:~/bin
+# PATH=$PATH:~/usr/bin
+# PATH=$PATH:~/env/bin
+# PATH=$PATH:~/bin/$OS_VAR
+
+#     # standard path stuff
+# PATH=$PATH:/usr/local/bin
+# PATH=$PATH:/usr/bin
+# PATH=$PATH:/bin
+# PATH=$PATH:/usr/sbin
+# PATH=$PATH:/sbin
+
+
+# PATH=$PATH:$OLDPATH
+# export PATH    
+
+# # lib path
+# LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+# LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
+# LD_LIBRARY_PATH=/lib:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH
+
+# # paths to python modules at dstc
+# PYTHONPATH=~:$PYTHONPATH
+# PYTHONPATH=$PYTHONPATH:~/env/local 
+# export PYTHONPATH
+
+#     # tell NLTK where to find its copora
+# export NLTK_LITE_CORPORA=/usr/lib/python2.4/site-packages/nltk_lite/corpora
+
+# export JOURNAL_PATH=~/env/journal
+
+
+
+export SVN_EDITOR='emacs -nw'
+ 
+
+# colours for man pages (using less in bash)
+man() {    
+
+    # ansi colour codes
+    # 30        31      32      33      34      35          36      37
+    # Black     Red     Green   Yellow  Blue    Magenta 	Cyan 	White
+    #
+    # 1 bold, 2 faint
+    #
+    # http://en.wikipedia.org/wiki/ANSI_escape_code
+	env \
+		LESS_TERMCAP_mb=$(printf "\e[1;32m") \
+		LESS_TERMCAP_md=$(printf "\e[1;34m") \
+		LESS_TERMCAP_me=$(printf "\e[0m") \
+		LESS_TERMCAP_se=$(printf "\e[0m") \
+		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+		LESS_TERMCAP_ue=$(printf "\e[0m") \
+		LESS_TERMCAP_us=$(printf "\e[1;35m") \
+			man "$@"
+}
+
+
+# java
+
+#export JAVA_HOME=/usr/java/jdk1.7.0_21
+#export JAVA_HOME=/usr/java/jdk1.6.0_45
+export JAVA_HOME=/usr/java/latest
+#export JVM_ARGS="-Xmx1024m -XX:MaxPermSize=256m"
+#export JVM_ARGS="-Xmx1024m"
+export JVM_ARGS="-Xmx2048m"
+
+export CLASSPATH=/usr/share/java/ant/ant-contrib-0.6.jar:$CLASSPATH
+
+
+# maroon build requires more than 1024 processes (the default maximum).
+ulimit -u 4096
+
+# maven
+export PATH=$HOME/usr/local/apache-maven-3.0.5/bin:$PATH
+
+# python
+export PYTHONPATH=$HOME/proj/superbus:$PYTHONPATH
+export PATH=$HOME/proj/superbus/skunkwood/tools:$PATH
+
+# texlive
+export PATH=/usr/local/texlive/2013/bin/x86_64-linux:$PATH
+
+# use normal date format
+export LC_TIME=en_GB.UTF-8
+
+# eyecon stuff
+export EYECON_GAME_RULES_DIR=$HOME/proj/superbus/game-rules
+
+
