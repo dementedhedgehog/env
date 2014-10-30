@@ -1,0 +1,18 @@
+<!-- -*-html-*- -->
+<<hdr>> 
+<title></title>
+<</hdr>>
+<<page>>
+
+<<pageheader>>
+<</pageheader>>
+
+<<include("components/navigation/navigation.component",
+          back = "page.html",
+          up = "../../index.html",
+          forward = "page.html")>>
+<<footer>>
+<</page>>
+
+
+
